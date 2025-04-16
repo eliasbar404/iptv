@@ -10,6 +10,22 @@ Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
+Route::get('/alt', function () {
+    return Inertia::render('altpage');
+})->name('alt');
+
+Route::get('/contact', function () {
+    return Inertia::render('contact');
+})->name('contact');
+
+Route::get('/about', function () {
+    return Inertia::render('about');
+})->name('about');
+
+Route::get('/pricing', function () {
+    return Inertia::render('pricing');
+})->name('pricing');
+
 Route::get('/plans', function () {
     return Inertia::render('plansPage');
 })->name('plansPage');
