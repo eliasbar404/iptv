@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import {Send, MessageSquare } from 'lucide-react';
 import Header from '@/components/Header';
+import { router } from '@inertiajs/react'
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
+    user_name: '',
     email: '',
     subject: '',
     message: ''
@@ -14,7 +15,8 @@ function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    router.post('/contact', formData);
+    setFormData({ user_name: '', email: '', subject: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,28 +45,6 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-4 pb-20">
         <div className="relative">
           {/* Contact Methods */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-2xl border border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-200 transition-all duration-300">
-              <Phone className="w-10 h-10 text-sky-500 mb-4" />
-              <h3 className="text-sky-900 text-xl font-semibold mb-2">Call Us</h3>
-              <p className="text-sky-700">+44 (020) 1234-5678</p>
-              <p className="text-sky-600 text-sm mt-2">Available 9AM - 6PM GMT</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-200 transition-all duration-300">
-              <Mail className="w-10 h-10 text-sky-500 mb-4" />
-              <h3 className="text-sky-900 text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-sky-700">support@iptvservice.uk</p>
-              <p className="text-sky-600 text-sm mt-2">24/7 Email Support</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-200 transition-all duration-300">
-              <MapPin className="w-10 h-10 text-sky-500 mb-4" />
-              <h3 className="text-sky-900 text-xl font-semibold mb-2">Visit Us</h3>
-              <p className="text-sky-700">123 IPTV Street</p>
-              <p className="text-sky-700">London, UK EC1A 1BB</p>
-            </div>
-          </div>
 
           {/* Contact Form */}
           <div className="max-w-3xl mx-auto">
@@ -77,14 +57,14 @@ function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-sky-700 mb-2">
+                    <label htmlFor="user_name" className="block text-sm font-medium text-sky-700 mb-2">
                       Your Name
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="user_name"
+                      name="user_name"
+                      value={formData.user_name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-sky-50 border border-sky-200 rounded-xl text-sky-900 placeholder-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-transparent transition-all duration-200"
                       required
@@ -138,7 +118,7 @@ function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 px-6 rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl"
+                  className="w-full bg-green-500 hover:bg-green-600 cursor-pointer text-white py-4 px-6 rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl"
                 >
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                   Send Message

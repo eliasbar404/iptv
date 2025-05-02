@@ -103,7 +103,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <button 
-              className="p-2 hover:bg-gray-100 rounded-lg lg:hidden"
+              className="p-2 hover:bg-gray-100 rounded-lg lg:hidden bg-gray-100 cursor-pointer"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}

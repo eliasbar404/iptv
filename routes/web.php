@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubscriptionPlanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -54,6 +55,13 @@ Route::fallback(function () {
 
 Route::post('/user/information',[UserController::class, 'store'])->name('user.information');
 
+
+Route::post('/contact',[ContactController::class, 'store'])->name('contact.create');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

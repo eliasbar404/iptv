@@ -1,7 +1,7 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useRef} from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Monitor, Rocket, Smartphone } from 'lucide-react';
 import { Check, Users, User } from 'lucide-react';
@@ -54,6 +54,7 @@ const FirstCom = () =>{
         {/* Hero Section */}
         <div className="relative h-[600px] md:h-[700px] overflow-hidden">
           {/* Background Image */}
+          
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -61,22 +62,24 @@ const FirstCom = () =>{
             }}
           >
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-700/90 to-blue-600/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-700/90 to-slate-600/90"></div>
           </div>
   
           {/* Hero Content */}
-          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex flex-col justify-center h-full text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                We Offer the Most Reliable IPTV Service<br />
-                <span className="text-3xl md:text-5xl">Proudly Based in the UK!</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Best IPTV Subscription: Enjoy top-tier IPTV service with 4K quality on any
-                device, anytime, with 30,000+ channels, 150,000+ VOD, and 99.9% uptime.
-              </p>
+
+              <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 opacity-40">
+  We Offer the Most Reliable IPTV Service<br />
+  <span className="text-2xl md:text-5xl">Proudly Based in the UK!</span>
+</h1>
+
+              <p className="hidden md:block text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto opacity-40">
+  Best IPTV Subscription: Enjoy top-tier IPTV service with 4K quality on any
+  device, anytime, with 30,000+ channels, 150,000+ VOD, and 99.9% uptime.
+</p>
               <div>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                <button className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 opacity-50 hover:opacity-100">
 24H Free Trial - No Payment Required
                 </button>
               </div>
@@ -128,144 +131,299 @@ const FirstCom = () =>{
 }
 
 
+const SecondCom = () => {
+  const movies = [
+    {
+      title: "UEFA Champions League",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJnoQ_xN7gL2l3RO9qM2WKoNVE2RhubZmkag&s"
+    },
+    {
+      title: "Peaky Blinders",
+      image: "https://m.media-amazon.com/images/M/MV5BM2ZiNThlNzItNmY3Ny00NjA2LWJlMjItNTk1NDI3MDMyMTk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      title: "NBA",
+      image: "https://www.muraldecal.com/en/img/asfs355-jpg/folder/products-listado-merchant/stickers-nba.jpg"
+    },
+    {
+      title: "Vikings",
+      image: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9155926_b_v10_au.jpg"
+    },
+    {
+      title: "WWE",
+      image: "https://cdn.britannica.com/05/241905-050-494EA022/WWE-wrestler-Roman-Reigns-at-Universal-Championship-Match-Texas-2023.jpg"
+    },
+    {
+      title: "UEFA Europa League",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFAAyqQ7IrI-zepkYPep7jPE-vl794rLk0iQ&s"
+    }
+  ];
+  
+  const channels = [
+    { name: 'Hulu', logo: 'data:image/png;base64,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' },
+    { name: 'Disney+', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg' },
+    { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+    { name: 'HBO Max', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg' },
+    { name: 'ITV', logo: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAAC1CAMAAACtbCCJAAABg1BMVEX///8AAAAAvsr/qwCMexHIAGMAuseVlZWm4uf/qQD/pQC1tbXf9vdubm7/pwB21Nx2dnbr6+u/v79+fn5fX1+Ghobk5OSIdgD/sQCEcQDS0tJGRkba2to4ODjFAGbHx8enp6fEAFTHAGD/xnH///z/58b/zYIAxtLn+PknJyfGAFr/w2aZijj/9uj/wFyIgADq59mgoKAXFxdSy9WI2eDehKf/1Zq86e3/+O3/tjv/79fOIlvlbD3/4rn/ukr/sST/2aTf2saqnmLEvJaSgiPPyapk0NhPT09YWFgiIiLL7vExMTH55+/y0d7z0+D99vrPPXvST4Xrt8vZbJjxrITknbnXNzfufBfcVEj1kh7tgDDZSUzVPVPWYJDprsXaTUro1tC5XV3pdDWUXQCxNUSgXTK7LVN8emy2rHyoUjyLh3CUbx+elm+vRkWRqaubZSocFwCLur4+NgBbUAp2Zw4AFBYAT1QtKAYAd36ilVEAnKaVbSIAPEBmWgzFcDEAZmwwHQAm3ympAAAOYUlEQVR4nO2d+UPbyBXHZUsIbIPBgBHmNMHBXAkGOxxJSDDGQEhoNkm33d1u725L73R324S2afunVxpdM9IcT0I2ltH3hwTL9tjz8Xtv3psZSZLk0erw8MXwsPfondZwo65aSo/u3fa36RENpdW0K4PM6m1/pdvXBQHFQtO47W9122r4oRhcqnfbYOpUKobuMhc2lbvMZZRDJV297W93W7rgUbm7cZcHxeByN91oiGssukZDNDqXGxw7n325trOzNn82WSzPRP61Oy0BlODmUtieTfk1v13ozPfvjPiRBWEZCtJeYYTCxNRIjMA0hNaSrgdoLseEYijXsW5ErboYiwpvrcylkkqVO9WNqCX0IR0LeKJhTkAllZrrZF+i0yoEC3iSgRZrSc12sjPRaRiCBRpzC0IqqdRUR7sTlcQDUQAs4wAs8Yi6EGtJQ7FsA7AUO9qdqBSpEw0CsIx0tDtRCRRy7x4Wce6vY7kAttVHWCDpHLQo6iMsgOQ/DW2rj7AAYi54IqqPsEhVoQ+Bc/9+wrInMhd4Ad1PWISTltBxqM+w8KOLGmDOsq+wCGZzAzTUX1i4C0VBJnL7DAuHS6Dp7X7DovsRDYwaZBZX6kMs0mrdB0ZNB936039YJOniFAOjqmo10DoIUj9i0bXXqKfRHrHq6VCYJdY+xWIq/JpzX2MJrwQLVQkWqhIsVCVYqEqwUJVgoSrBQlWChaoEC1VdxfLq8vLyB6+jaq2T6haW15ePPltfWl9fX1p6c3mjlg4Pnj/bfUx7ZmhUIPh+ZQiWlxNjHJUBn/L2jQ7k3oCpe0tvbmAx97OZTCaflVfue585VdMqV2k10lVFgcYEH/HqkYvEAjMQnsuzjGxIJ5NfPqxgT0S6SSwCLCn+JzxaWh/w6t5CWCqVvOwok80/PNq3n+n6/haReHt3Lwf8UHStvwuJ5TAr49KN5sAKNHHC8m7pHo3KwMBSyLi7kZE9MgLNbiVOWF4tUE0F6UmF9S6u8l4qJpnnMcLylmUqKLz8MAyV+1kaFlnOPo4Nls+X2FB0/Yiaewi07POhuGERUBkYeB4CC4OKnK3EBMtbEZWFH+8GpsLyocyzmMSW1+xga2P5IrNPeSNXLB/KH8UEyztOtLX0ZPpZUCwsH8rHZIB+LXIhw1wyWV9dwxfThx5K8cDyVuhDOpYvZTkYFn8uZwXcw5hgeQTB8pWcXwlCpcIwFjkvxQQLILQMLDydlrMPAmA5ZGAx4fYNli+m0cgK1kN2LtdPWH4ybYUFmPZZAdfMC+OA5XNAbBn4WseSgUfdI2qZaCYtMcHyCjBAIyxyHpzrHrB8aD82WKTPAF70ZBrrlVAPeEnLbWA5H1zjPk9rV1gSOVjsbom0wvAhOye8jZPyCrkJ5pnB49SGAeZiYpGBua5M9yEnON3euYqFKYoYDV+KzcXCkgHNMLASfyc2xeQUzp8KzeXracsNjgDNMRN/OzTFBIt4asHGggpggViJf2bDfkVMsEg/E3FxsSwLG2MlLW5gigsWUdRd+Pm00zlhafScEXDduBQbLL/gR12jJrJ7JyqNHrMC7lH8sEi/5GN56mARDtLLrMTfjUrxwdLmmsvCr1wsgtKowqKCzdfEB0vl11wsX+Ed5JZGzICLxaT4YJGOf8PD8iXRQ15pxAq4eN0QIyzNEg8LEUZ5gzQr4BIRKUZYKto3bCz3PH1kL74yMtzMAf6irmP5XWgs0ubWb5lYnkyTnWQO0qxpOXJmL05YrjSmG2HZHMUlcO3SA65n9Oo6lj+Ex9LWtn7PwvJ0mttNV4wpBSyVixuWZknZYiQvxPhsmssRtQ3mOghZYHYdy5/CY6mVFOWPDCz+3tIracYcrjfTiROWgo5l68/0gWja31PaIiNzdPYkOl3Hchwey76ORdmiVdJolcjXVUolzVg08yGMFMtfuoBF+Ssk4hqiTHezJvx9BLuN5f1meCw1hGWLUgOQqb/TWV9Ox5jwz/iS4kix/E2M5VvlplgUhWIuFGPxJq4Su3b2u1ukWBpiLN9p4bE0TSxb34BCi+xfk2alchu+j4r0KoWnYizflwLvcXPU0kxr8dUA+GQL0V9PTsfdpNA5LPW/C7EopWZoLMcWFl/yQslaTJHpCGOihboSGSWW6j9EVD4oWis0FpuK4q0BntCNRfbkdIy8n1ptR4kl/VEYWhTtOiwVO+IaXIjlEerwbGHBEhJG3k9fthZTAWNZVf8pDC2KooU7bcENLYb+BfIhmRhkGLNy9KkZyKU+gVj21LSAynu9R6GDC0aFrAHYPoSPMoGMBYIFenXlRrr6b5EP6dYSMs9tlhRcbg3AGoc8xsAyFvpiG+QKqMAr8umEBcEF9awUzos2NQKLWwMssLZjm9Zg5XQsY/HnLEjCO6ukwVe11FtSuVQ+oA6FG4vapLG4NYBvYs5rDuY8XTBjgV26HfTFDcB8L/pk9ihMolshbQWrAej1EGYPaGWZYSzsJQIIFtDVPlGU4nnRe6s/Yczl2IfFrgF4Adc0iCOJnbMwc27h9XLTsAsJm9UVz4s+2T0q1YJS8boQ4oJqAP90pc9c9BLgiGEs7P3wkJgLOUH8FGHhJbpOh7SgswtNChWrBhAaCyoBMozpJ3b0BwUX8QnidinOzug+uR3SrgJRqVGpoBpAbCyGGPMs3LVqyH0hxOZi+yIz6L7He1QKEl7otqKgGgBgLLIs2ldJFSShE6Yu7m08WebyvRKSS4tFRa8BRMMQV/xTBIQX4wa4EdYGI7p86+lRCehHlWs2FWXrPyBjoUu0VxViLXwuBFn6YOTrkrYJmZBql/wJC9ZGhZGlgYxFsGlqFMaFXRmRmXL1v0IXMvskdqT2CcdUdItrMxd+AMYi2mIHmaEzuJzSLwK66rvlq9iFLDBai1Mf7bcULhRz6oa1e19sLMIT7U+BXNSGH8yq/4LVVV/Ufc/sWem4SSWz377mug96M3pnSDcCbN8F3bvJJFMfwu8RMTxEvTmwz404v7pWKl23mjWXTaXWbB8rJU0ExZ64CelGgM3e0ikUC7rbevW0oWu0XlWpV/A2RM51UwILQUZHU9JONjevNzc3FeNvIRIFG+JDuVEWckIWMLo4aMSvwKl8B+gkoqOBeFivdmezGNkaT7ATSUCzLkGEhxd6uL2h8JnyEG4EPcWedwPxUFw+dpYKUWyytmWzjQV4kpq0Gi0VN+x+6DyV4G4EP5EcUkiH4NIVKsyzyRgKctmBqMML4tIRKiX/2kEgNwpwurSEF8FRcfn4v45QoRSZlSBuFPCSJlFzURtNYaYagkqb9t0DuBE43naGi1Fz104i5qIpjHngDbAb5QNvJQFNvQChWPfwueKXewFFCSuWKozpWr8LHQWlohc5kVFxFguaSmQGo2mc9WugG/l2jsEErKYFUKp4QdmKJsJopStueQdzo+AuZGoPUPIIoHhnrPaPIwBT2hSsLoFGowCXePHqZpFXVSmLbbUbgtFKJ+L9H4DaKBvo+lEerYb3JJW1Alm7Cg8GBEXXrohLPujY7AUzypxK4RoKbytMpX0SioxWuobuFFrhc8nekIqhoWpAMKp6KlrCr11Bpt1IJkorQJDkccncyINcDTfSYJtR1Tpsz1SttQmcfjNm7U6uAq7iH2YZ41EmLwe8jCFHq0OnYjT6C0aD3FRvv3mF0HDY6E+WtON24J0NeuMb2bz/WtKZrHwUvC2uhu07xXlHbnQp/HS9sRfibmmVWvvqGs3h+mQcvL4Kg8TUgxU5m89nHOXz2cxydJZCaPVib8iY1Xah1Oujjb2L8PePM2TM8rdaV8fG3Lah6+OrVhtfBgipB4crGwfPDR08W949DHL1wkSJEiVKlChRokSJEiVKlChRokSJuq7F7YmRyZGxwdyc8Wg8R2hKkqbsPywZj2as/0npR+fcR4tzng8qLJrCPlrXTBe6GFiFEWy7qN6Pcc9u47J9aM15i/FoTKfl38de9F4MaZIg4xx1Ptx4dN61vsKVI3pR8B5IpXIOqZz9HuPBBBXLoP8aUdvuZ804B+0jBQJS76hM9kHiYXE6w8bis5YUfvX+ou9Yj2KZs77meXFwsDg262A5K9qamHGxDFrvsrAUJtArkBPOm68et7BMorea9znYcT5tBzVi/GNf87NHsczav7GrnMfyJSzcWPf4sLBYQmjdexajbi/ib5wjX7iGGV5vYjGNpUwcy+F2YcrBYnWexDJDwWI7ybnlhvgzyJWs0ac3saBvOEseY2GZN/4xB2k4liJuei+NB6+lRcxAexPLPBkSkVhYUG/O0GM4lgnMGgv2b4AFnN7EggcMWywsU27QgGOZxwJN2bacczfg9DAWzzFygEa/6rjZD+PfNfttfCwWiW38A85sGmUXfE9iQV/qhecgieWlccjCkrM9QoxlckLXCBqQnaccRFNOw72JZcr5/TGxsZgxU4JgwWUdR42Y+Yrruz2JpSB2onnjkI0FASgGxGJXmCjrM8dqNxD3JBZ2bKGEXCMqnJs/MxzLSzcvxD7LHdR6GIun+udhmTIdQYxlcHwcBdZZ8lU+5+pNLOdkB5F4WEzzn9oRYjFGohGioaIPizGI9yaWMuH9prhYkKGcvRBicbrsNL7jwzIi9SoW85vvEAkdH8u23SlAOreNuRFlEiIl9SoWaczq46JOpjBTHpmzsBQLrggszq8OyXJRrVxGf27b9mEKNTHTs1icaURLRf801AiJxX4agsUMs8gWURXgTO+ZP0fRNldH5HzGLcpj3JN+LGMkFrODwJpo0vjbmKotuICQUItrPizljvcXrEn8e52JscxRsbj+gWMxe52zGsXzafTEVA9jkaYGrZuo7pwVjdWP+VlCg5ZJOT/1uPHyWXf4KrxI4f6xaHbYeu2OBVb/fw2fwTDgremvmp3HtJaTekwF2j2H76b+D0hV2or64536AAAAAElFTkSuQmCC' },
+    { name: 'BBC Two', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/BBC_Two_logo_2021.svg/1200px-BBC_Two_logo_2021.svg.png' },
+    { name: 'BBC One', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/BBC_One_logo_2021.svg/1200px-BBC_One_logo_2021.svg.png' },
+    { name: 'Film4', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Film4_logo_2018.svg/1200px-Film4_logo_2018.svg.png' },
+    { name: 'BBC News', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png' }
+  ];
+  const [isMobile, setIsMobile] = useState(false);
+  const [itemsToShow, setItemsToShow] = useState(4);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Create infinite arrays by repeating the content
+  const infiniteMovies = [...movies, ...movies, ...movies];
+  const infiniteChannels = [...channels, ...channels, ...channels];
 
-const SecondCom = ()=>{
-    const movies = [
-        {
-          title: "UEFA Champions League",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJnoQ_xN7gL2l3RO9qM2WKoNVE2RhubZmkag&s"
-        },
-        {
-          title: "Peaky Blinders",
-          image: "https://m.media-amazon.com/images/M/MV5BM2ZiNThlNzItNmY3Ny00NjA2LWJlMjItNTk1NDI3MDMyMTk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-        },
-        {
-          title: "NBA",
-          image: "https://www.muraldecal.com/en/img/asfs355-jpg/folder/products-listado-merchant/stickers-nba.jpg"
-        },
-        {
-          title: "Vikings",
-          image: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9155926_b_v10_au.jpg"
-        },
-        {
-          title: "WWE",
-          image: "https://cdn.britannica.com/05/241905-050-494EA022/WWE-wrestler-Roman-Reigns-at-Universal-Championship-Match-Texas-2023.jpg"
-        },
-        {
-          title: "UEFA Europa League",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFAAyqQ7IrI-zepkYPep7jPE-vl794rLk0iQ&s"
-        }
-      ];
-      
-      const channels = [
-        { name: 'Hulu', logo: 'data:image/png;base64,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' },
-        { name: 'Disney+', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg' },
-        { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-        { name: 'HBO Max', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg' },
-        { name: 'ITV', logo: 'data:image/png;base64,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' },
-        { name: 'BBC Two', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/BBC_Two_logo_2021.svg/1200px-BBC_Two_logo_2021.svg.png' },
-        { name: 'BBC One', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/BBC_One_logo_2021.svg/1200px-BBC_One_logo_2021.svg.png' },
-        { name: 'Film4', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Film4_logo_2018.svg/1200px-Film4_logo_2018.svg.png' },
-        { name: 'BBC News', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png' }
-      ];
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const nextSlide = () => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex >= movies.length - 4 ? 0 : prevIndex + 1
-      );
+  // Check screen size and set items to show accordingly
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setItemsToShow(1);
+        setIsMobile(true);
+      } else if (width < 768) {
+        setItemsToShow(2);
+        setIsMobile(true);
+      } else if (width < 1024) {
+        setItemsToShow(3);
+        setIsMobile(false);
+      } else {
+        setItemsToShow(4);
+        setIsMobile(false);
+      }
     };
-  
-    const prevSlide = () => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === 0 ? movies.length - 4 : prevIndex - 1
-      );
-    };
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        nextSlide();
-      }, 3000); // Change slide every 3 seconds
-  
-      return () => clearInterval(interval);
-    }, []);
-    return (
-        <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Navigate & Enjoy<br />
-              More Than 30 000+ Channels
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              At TVBOXUK, we pride ourselves on delivering the most reliable
-              and stable IPTV service available in the UK. Our top priority is
-              ensuring that your viewing experience is seamless,
-              uninterrupted, and always at its best. Whether you're watching
-              live TV, sports, movies, or series, you can count on us for
-              crystal-clear streaming with zero buffering.
-            </p>
-          </div>
-  
-          {/* Streaming Services Logos */}
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-16">
-            {channels.map((channel, index) => (
-              <div key={index} className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
-                <img 
-                  src={channel.logo} 
-                  alt={channel.name}
-                  className="h-8 md:h-10 object-contain"
-                />
-              </div>
-            ))}
-          </div>
-  
-          {/* Movie Carousel */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-xl">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 25}%)` }}
-              >
-                {movies.map((movie, index) => (
-                  <div 
-                    key={index}
-                    className="w-1/4 flex-shrink-0 px-2"
-                  >
-                    <div className="relative group">
-                      <img
-                        src={movie.image}
-                        alt={movie.title}
-                        className="w-full h-[400px] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-end">
-                        <p className="text-white p-4 text-lg font-semibold">{movie.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div className="bg-white py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
+            Navigate & Enjoy<br />
+            More Than 30,000+ Channels
+          </h2>
+          <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
+            At TVBOXUK, we pride ourselves on delivering the most reliable
+            and stable IPTV service available in the UK. Our top priority is
+            ensuring that your viewing experience is seamless,
+            uninterrupted, and always at its best.
+          </p>
+        </div>
+
+        {/* Streaming Services Logos - Infinite Scroll */}
+        <div className="overflow-hidden mb-8 md:mb-16">
+          <div className="flex animate-scroll">
+            <div className="grid grid-flow-col gap-3 md:gap-6">
+              {infiniteChannels.map((channel, index) => (
+                <div 
+                  key={index} 
+                  className="w-32 sm:w-40 md:w-48 flex-shrink-0 flex items-center justify-center p-2 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <img 
+                    src={channel.logo} 
+                    alt={channel.name}
+                    className="h-6 sm:h-8 md:h-10 object-contain"
+                  />
+                </div>
+              ))}
             </div>
-  
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
         </div>
+
+        {/* Movie Carousel - Auto Scroll */}
+        <div className="overflow-hidden rounded-xl" ref={carouselRef}>
+          <div className="flex animate-movie-scroll">
+            <div className="flex">
+              {infiniteMovies.map((movie, index) => (
+                <div 
+                  key={index}
+                  className={`flex-shrink-0 px-2 transition-all duration-300 ${
+                    itemsToShow === 1 ? 'w-full' : 
+                    itemsToShow === 2 ? 'w-1/2' : 
+                    itemsToShow === 3 ? 'w-1/3' : 
+                    'w-1/4'
+                  }`}
+                >
+                  <div className="relative group h-full">
+                    <img
+                      src={movie.image}
+                      alt={movie.title}
+                      className="w-full h-[500px] sm:h-[250px] md:h-[300px] lg:h-[400px] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-end">
+                      <p className="text-white p-3 md:p-4 text-base md:text-lg font-semibold">{movie.title}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Indicator dots */}
+        {isMobile && (
+          <div className="flex justify-center mt-4">
+            {Array.from({ length: movies.length }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-2 w-2 mx-1 rounded-full ${
+                  i === 0 ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
-    )
-}
+    </div>
+  );
+};
+
+
+
+// const SecondCom = ()=>{
+//     const movies = [
+//         {
+//           title: "UEFA Champions League",
+//           image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJnoQ_xN7gL2l3RO9qM2WKoNVE2RhubZmkag&s"
+//         },
+//         {
+//           title: "Peaky Blinders",
+//           image: "https://m.media-amazon.com/images/M/MV5BM2ZiNThlNzItNmY3Ny00NjA2LWJlMjItNTk1NDI3MDMyMTk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+//         },
+//         {
+//           title: "NBA",
+//           image: "https://www.muraldecal.com/en/img/asfs355-jpg/folder/products-listado-merchant/stickers-nba.jpg"
+//         },
+//         {
+//           title: "Vikings",
+//           image: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9155926_b_v10_au.jpg"
+//         },
+//         {
+//           title: "WWE",
+//           image: "https://cdn.britannica.com/05/241905-050-494EA022/WWE-wrestler-Roman-Reigns-at-Universal-Championship-Match-Texas-2023.jpg"
+//         },
+//         {
+//           title: "UEFA Europa League",
+//           image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFAAyqQ7IrI-zepkYPep7jPE-vl794rLk0iQ&s"
+//         }
+//       ];
+      
+//       const channels = [
+//         { name: 'Hulu', logo: 'data:image/png;base64,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' },
+//         { name: 'Disney+', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg' },
+//         { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+//         { name: 'HBO Max', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg' },
+//         { name: 'ITV', logo: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAAC1CAMAAACtbCCJAAABg1BMVEX///8AAAAAvsr/qwCMexHIAGMAuseVlZWm4uf/qQD/pQC1tbXf9vdubm7/pwB21Nx2dnbr6+u/v79+fn5fX1+Ghobk5OSIdgD/sQCEcQDS0tJGRkba2to4ODjFAGbHx8enp6fEAFTHAGD/xnH///z/58b/zYIAxtLn+PknJyfGAFr/w2aZijj/9uj/wFyIgADq59mgoKAXFxdSy9WI2eDehKf/1Zq86e3/+O3/tjv/79fOIlvlbD3/4rn/ukr/sST/2aTf2saqnmLEvJaSgiPPyapk0NhPT09YWFgiIiLL7vExMTH55+/y0d7z0+D99vrPPXvST4Xrt8vZbJjxrITknbnXNzfufBfcVEj1kh7tgDDZSUzVPVPWYJDprsXaTUro1tC5XV3pdDWUXQCxNUSgXTK7LVN8emy2rHyoUjyLh3CUbx+elm+vRkWRqaubZSocFwCLur4+NgBbUAp2Zw4AFBYAT1QtKAYAd36ilVEAnKaVbSIAPEBmWgzFcDEAZmwwHQAm3ympAAAOYUlEQVR4nO2d+UPbyBXHZUsIbIPBgBHmNMHBXAkGOxxJSDDGQEhoNkm33d1u725L73R324S2afunVxpdM9IcT0I2ltH3hwTL9tjz8Xtv3psZSZLk0erw8MXwsPfondZwo65aSo/u3fa36RENpdW0K4PM6m1/pdvXBQHFQtO47W9122r4oRhcqnfbYOpUKobuMhc2lbvMZZRDJV297W93W7rgUbm7cZcHxeByN91oiGssukZDNDqXGxw7n325trOzNn82WSzPRP61Oy0BlODmUtieTfk1v13ozPfvjPiRBWEZCtJeYYTCxNRIjMA0hNaSrgdoLseEYijXsW5ErboYiwpvrcylkkqVO9WNqCX0IR0LeKJhTkAllZrrZF+i0yoEC3iSgRZrSc12sjPRaRiCBRpzC0IqqdRUR7sTlcQDUQAs4wAs8Yi6EGtJQ7FsA7AUO9qdqBSpEw0CsIx0tDtRCRRy7x4Wce6vY7kAttVHWCDpHLQo6iMsgOQ/DW2rj7AAYi54IqqPsEhVoQ+Bc/9+wrInMhd4Ad1PWISTltBxqM+w8KOLGmDOsq+wCGZzAzTUX1i4C0VBJnL7DAuHS6Dp7X7DovsRDYwaZBZX6kMs0mrdB0ZNB936039YJOniFAOjqmo10DoIUj9i0bXXqKfRHrHq6VCYJdY+xWIq/JpzX2MJrwQLVQkWqhIsVCVYqEqwUJVgoSrBQlWChaoEC1VdxfLq8vLyB6+jaq2T6haW15ePPltfWl9fX1p6c3mjlg4Pnj/bfUx7ZmhUIPh+ZQiWlxNjHJUBn/L2jQ7k3oCpe0tvbmAx97OZTCaflVfue585VdMqV2k10lVFgcYEH/HqkYvEAjMQnsuzjGxIJ5NfPqxgT0S6SSwCLCn+JzxaWh/w6t5CWCqVvOwok80/PNq3n+n6/haReHt3Lwf8UHStvwuJ5TAr49KN5sAKNHHC8m7pHo3KwMBSyLi7kZE9MgLNbiVOWF4tUE0F6UmF9S6u8l4qJpnnMcLylmUqKLz8MAyV+1kaFlnOPo4Nls+X2FB0/Yiaewi07POhuGERUBkYeB4CC4OKnK3EBMtbEZWFH+8GpsLyocyzmMSW1+xga2P5IrNPeSNXLB/KH8UEyztOtLX0ZPpZUCwsH8rHZIB+LXIhw1wyWV9dwxfThx5K8cDyVuhDOpYvZTkYFn8uZwXcw5hgeQTB8pWcXwlCpcIwFjkvxQQLILQMLDydlrMPAmA5ZGAx4fYNli+m0cgK1kN2LtdPWH4ybYUFmPZZAdfMC+OA5XNAbBn4WseSgUfdI2qZaCYtMcHyCjBAIyxyHpzrHrB8aD82WKTPAF70ZBrrlVAPeEnLbWA5H1zjPk9rV1gSOVjsbom0wvAhOye8jZPyCrkJ5pnB49SGAeZiYpGBua5M9yEnON3euYqFKYoYDV+KzcXCkgHNMLASfyc2xeQUzp8KzeXracsNjgDNMRN/OzTFBIt4asHGggpggViJf2bDfkVMsEg/E3FxsSwLG2MlLW5gigsWUdRd+Pm00zlhafScEXDduBQbLL/gR12jJrJ7JyqNHrMC7lH8sEi/5GN56mARDtLLrMTfjUrxwdLmmsvCr1wsgtKowqKCzdfEB0vl11wsX+Ed5JZGzICLxaT4YJGOf8PD8iXRQ15pxAq4eN0QIyzNEg8LEUZ5gzQr4BIRKUZYKto3bCz3PH1kL74yMtzMAf6irmP5XWgs0ubWb5lYnkyTnWQO0qxpOXJmL05YrjSmG2HZHMUlcO3SA65n9Oo6lj+Ex9LWtn7PwvJ0mttNV4wpBSyVixuWZknZYiQvxPhsmssRtQ3mOghZYHYdy5/CY6mVFOWPDCz+3tIracYcrjfTiROWgo5l68/0gWja31PaIiNzdPYkOl3Hchwey76ORdmiVdJolcjXVUolzVg08yGMFMtfuoBF+Ssk4hqiTHezJvx9BLuN5f1meCw1hGWLUgOQqb/TWV9Ox5jwz/iS4kix/E2M5VvlplgUhWIuFGPxJq4Su3b2u1ukWBpiLN9p4bE0TSxb34BCi+xfk2alchu+j4r0KoWnYizflwLvcXPU0kxr8dUA+GQL0V9PTsfdpNA5LPW/C7EopWZoLMcWFl/yQslaTJHpCGOihboSGSWW6j9EVD4oWis0FpuK4q0BntCNRfbkdIy8n1ptR4kl/VEYWhTtOiwVO+IaXIjlEerwbGHBEhJG3k9fthZTAWNZVf8pDC2KooU7bcENLYb+BfIhmRhkGLNy9KkZyKU+gVj21LSAynu9R6GDC0aFrAHYPoSPMoGMBYIFenXlRrr6b5EP6dYSMs9tlhRcbg3AGoc8xsAyFvpiG+QKqMAr8umEBcEF9awUzos2NQKLWwMssLZjm9Zg5XQsY/HnLEjCO6ukwVe11FtSuVQ+oA6FG4vapLG4NYBvYs5rDuY8XTBjgV26HfTFDcB8L/pk9ihMolshbQWrAej1EGYPaGWZYSzsJQIIFtDVPlGU4nnRe6s/Yczl2IfFrgF4Adc0iCOJnbMwc27h9XLTsAsJm9UVz4s+2T0q1YJS8boQ4oJqAP90pc9c9BLgiGEs7P3wkJgLOUH8FGHhJbpOh7SgswtNChWrBhAaCyoBMozpJ3b0BwUX8QnidinOzug+uR3SrgJRqVGpoBpAbCyGGPMs3LVqyH0hxOZi+yIz6L7He1QKEl7otqKgGgBgLLIs2ldJFSShE6Yu7m08WebyvRKSS4tFRa8BRMMQV/xTBIQX4wa4EdYGI7p86+lRCehHlWs2FWXrPyBjoUu0VxViLXwuBFn6YOTrkrYJmZBql/wJC9ZGhZGlgYxFsGlqFMaFXRmRmXL1v0IXMvskdqT2CcdUdItrMxd+AMYi2mIHmaEzuJzSLwK66rvlq9iFLDBai1Mf7bcULhRz6oa1e19sLMIT7U+BXNSGH8yq/4LVVV/Ufc/sWem4SSWz377mug96M3pnSDcCbN8F3bvJJFMfwu8RMTxEvTmwz404v7pWKl23mjWXTaXWbB8rJU0ExZ64CelGgM3e0ikUC7rbevW0oWu0XlWpV/A2RM51UwILQUZHU9JONjevNzc3FeNvIRIFG+JDuVEWckIWMLo4aMSvwKl8B+gkoqOBeFivdmezGNkaT7ATSUCzLkGEhxd6uL2h8JnyEG4EPcWedwPxUFw+dpYKUWyytmWzjQV4kpq0Gi0VN+x+6DyV4G4EP5EcUkiH4NIVKsyzyRgKctmBqMML4tIRKiX/2kEgNwpwurSEF8FRcfn4v45QoRSZlSBuFPCSJlFzURtNYaYagkqb9t0DuBE43naGi1Fz104i5qIpjHngDbAb5QNvJQFNvQChWPfwueKXewFFCSuWKozpWr8LHQWlohc5kVFxFguaSmQGo2mc9WugG/l2jsEErKYFUKp4QdmKJsJopStueQdzo+AuZGoPUPIIoHhnrPaPIwBT2hSsLoFGowCXePHqZpFXVSmLbbUbgtFKJ+L9H4DaKBvo+lEerYb3JJW1Alm7Cg8GBEXXrohLPujY7AUzypxK4RoKbytMpX0SioxWuobuFFrhc8nekIqhoWpAMKp6KlrCr11Bpt1IJkorQJDkccncyINcDTfSYJtR1Tpsz1SttQmcfjNm7U6uAq7iH2YZ41EmLwe8jCFHq0OnYjT6C0aD3FRvv3mF0HDY6E+WtON24J0NeuMb2bz/WtKZrHwUvC2uhu07xXlHbnQp/HS9sRfibmmVWvvqGs3h+mQcvL4Kg8TUgxU5m89nHOXz2cxydJZCaPVib8iY1Xah1Oujjb2L8PePM2TM8rdaV8fG3Lah6+OrVhtfBgipB4crGwfPDR08W949DHL1wkSJEiVKlChRokSJEiVKlChRokSJuq7F7YmRyZGxwdyc8Wg8R2hKkqbsPywZj2as/0npR+fcR4tzng8qLJrCPlrXTBe6GFiFEWy7qN6Pcc9u47J9aM15i/FoTKfl38de9F4MaZIg4xx1Ptx4dN61vsKVI3pR8B5IpXIOqZz9HuPBBBXLoP8aUdvuZ804B+0jBQJS76hM9kHiYXE6w8bis5YUfvX+ou9Yj2KZs77meXFwsDg262A5K9qamHGxDFrvsrAUJtArkBPOm68et7BMorea9znYcT5tBzVi/GNf87NHsczav7GrnMfyJSzcWPf4sLBYQmjdexajbi/ib5wjX7iGGV5vYjGNpUwcy+F2YcrBYnWexDJDwWI7ybnlhvgzyJWs0ac3saBvOEseY2GZN/4xB2k4liJuei+NB6+lRcxAexPLPBkSkVhYUG/O0GM4lgnMGgv2b4AFnN7EggcMWywsU27QgGOZxwJN2bacczfg9DAWzzFygEa/6rjZD+PfNfttfCwWiW38A85sGmUXfE9iQV/qhecgieWlccjCkrM9QoxlckLXCBqQnaccRFNOw72JZcr5/TGxsZgxU4JgwWUdR42Y+Yrruz2JpSB2onnjkI0FASgGxGJXmCjrM8dqNxD3JBZ2bKGEXCMqnJs/MxzLSzcvxD7LHdR6GIun+udhmTIdQYxlcHwcBdZZ8lU+5+pNLOdkB5F4WEzzn9oRYjFGohGioaIPizGI9yaWMuH9prhYkKGcvRBicbrsNL7jwzIi9SoW85vvEAkdH8u23SlAOreNuRFlEiIl9SoWaczq46JOpjBTHpmzsBQLrggszq8OyXJRrVxGf27b9mEKNTHTs1icaURLRf801AiJxX4agsUMs8gWURXgTO+ZP0fRNldH5HzGLcpj3JN+LGMkFrODwJpo0vjbmKotuICQUItrPizljvcXrEn8e52JscxRsbj+gWMxe52zGsXzafTEVA9jkaYGrZuo7pwVjdWP+VlCg5ZJOT/1uPHyWXf4KrxI4f6xaHbYeu2OBVb/fw2fwTDgremvmp3HtJaTekwF2j2H76b+D0hV2or64536AAAAAElFTkSuQmCC' },
+//         { name: 'BBC Two', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/BBC_Two_logo_2021.svg/1200px-BBC_Two_logo_2021.svg.png' },
+//         { name: 'BBC One', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/BBC_One_logo_2021.svg/1200px-BBC_One_logo_2021.svg.png' },
+//         { name: 'Film4', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Film4_logo_2018.svg/1200px-Film4_logo_2018.svg.png' },
+//         { name: 'BBC News', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png' }
+//       ];
+//     const [currentIndex, setCurrentIndex] = useState(0);
+
+//     const nextSlide = () => {
+//       setCurrentIndex((prevIndex) => 
+//         prevIndex >= movies.length - 4 ? 0 : prevIndex + 1
+//       );
+//     };
+  
+//     const prevSlide = () => {
+//       setCurrentIndex((prevIndex) => 
+//         prevIndex === 0 ? movies.length - 4 : prevIndex - 1
+//       );
+//     };
+  
+//     useEffect(() => {
+//       const interval = setInterval(() => {
+//         nextSlide();
+//       }, 3000); // Change slide every 3 seconds
+  
+//       return () => clearInterval(interval);
+//     }, []);
+//     return (
+//         <div className="bg-white py-16">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="text-center mb-12">
+//             <h2 className="text-3xl md:text-4xl font-bold mb-4">
+//               Navigate & Enjoy<br />
+//               More Than 30 000+ Channels
+//             </h2>
+//             <p className="text-gray-600 max-w-3xl mx-auto">
+//               At TVBOXUK, we pride ourselves on delivering the most reliable
+//               and stable IPTV service available in the UK. Our top priority is
+//               ensuring that your viewing experience is seamless,
+//               uninterrupted, and always at its best. Whether you're watching
+//               live TV, sports, movies, or series, you can count on us for
+//               crystal-clear streaming with zero buffering.
+//             </p>
+//           </div>
+  
+//           {/* Streaming Services Logos */}
+//           <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-16">
+//             {channels.map((channel, index) => (
+//               <div key={index} className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+//                 <img 
+//                   src={channel.logo} 
+//                   alt={channel.name}
+//                   className="h-8 md:h-10 object-contain"
+//                 />
+//               </div>
+//             ))}
+//           </div>
+  
+//           {/* Movie Carousel */}
+//           <div className="relative">
+//             <div className="overflow-hidden rounded-xl">
+//               <div 
+//                 className="flex transition-transform duration-500 ease-in-out"
+//                 style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+//               >
+//                 {movies.map((movie, index) => (
+//                   <div 
+//                     key={index}
+//                     className="w-1/4 flex-shrink-0 px-2"
+//                   >
+//                     <div className="relative group">
+//                       <img
+//                         src={movie.image}
+//                         alt={movie.title}
+//                         className="w-full h-[400px] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+//                       />
+//                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-end">
+//                         <p className="text-white p-4 text-lg font-semibold">{movie.title}</p>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+  
+//             {/* Navigation Buttons */}
+//             <button
+//               onClick={prevSlide}
+//               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+//             >
+//               <ChevronLeft className="w-6 h-6" />
+//             </button>
+//             <button
+//               onClick={nextSlide}
+//               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+//             >
+//               <ChevronRight className="w-6 h-6" />
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     )
+// }
 
 
 
@@ -289,18 +447,18 @@ const singleDevicePlans = [
       '30,000+ Live channels',
       '150,000+ movies & series',
       'All Sports Channels',
-      'All PPV Events',
+      // 'All PPV Events',
       '4K/FHD/HD Quality',
       '99.9% server availability',
       'Support for all devices',
       'No buffering, no freezing',
       'Catch up (Up To 3 Days)',
-      'TV Guide EPG',
+      // 'TV Guide EPG',
       'Automatic Updates (Free)',
       'Instant Support 24/7',
-      'No Hidden Fees',
-      'Stream Codes / M3U / MAG',
-      'Instant Service Activation'
+      // 'No Hidden Fees',
+      // 'Stream Codes / M3U / MAG',
+      // 'Instant Service Activation'
     ]
   },
   {
@@ -311,18 +469,18 @@ const singleDevicePlans = [
       '30,000+ Live channels',
       '150,000+ movies & series',
       'All Sports Channels',
-      'All PPV Events',
+      // 'All PPV Events',
       '4K/FHD/HD Quality',
       '99.9% server availability',
       'Support for all devices',
       'No buffering, no freezing',
       'Catch up (Up To 3 Days)',
-      'TV Guide EPG',
+      // 'TV Guide EPG',
       'Automatic Updates (Free)',
       'Instant Support 24/7',
-      'No Hidden Fees',
-      'Stream Codes / M3U / MAG',
-      'Instant Service Activation'
+      // 'No Hidden Fees',
+      // 'Stream Codes / M3U / MAG',
+      // 'Instant Service Activation'
     ]
   },
   {
@@ -333,18 +491,18 @@ const singleDevicePlans = [
       '30,000+ Live channels',
       '150,000+ movies & series',
       'All Sports Channels',
-      'All PPV Events',
+      // 'All PPV Events',
       '4K/FHD/HD Quality',
       '99.9% server availability',
       'Support for all devices',
       'No buffering, no freezing',
       'Catch up (Up To 3 Days)',
-      'TV Guide EPG',
+      // 'TV Guide EPG',
       'Automatic Updates (Free)',
       'Instant Support 24/7',
       'No Hidden Fees',
-      'Stream Codes / M3U / MAG',
-      'Instant Service Activation'
+      // 'Stream Codes / M3U / MAG',
+      // 'Instant Service Activation'
     ]
   },
   {
@@ -355,18 +513,18 @@ const singleDevicePlans = [
       '30,000+ Live channels',
       '150,000+ movies & series',
       'All Sports Channels',
-      'All PPV Events',
+      // 'All PPV Events',
       '4K/FHD/HD Quality',
       '99.9% server availability',
       'Support for all devices',
       'No buffering, no freezing',
       'Catch up (Up To 3 Days)',
-      'TV Guide EPG',
+      // 'TV Guide EPG',
       'Automatic Updates (Free)',
       'Instant Support 24/7',
-      'No Hidden Fees',
-      'Stream Codes / M3U / MAG',
-      'Instant Service Activation'
+      // 'No Hidden Fees',
+      // 'Stream Codes / M3U / MAG',
+      // 'Instant Service Activation'
     ],
     bestValue: true
   }
@@ -525,10 +683,10 @@ const PricingSection = ()=> {
                 </div>
 
                 <button 
-                  className={`w-full mt-6 py-2 px-4 rounded-full font-medium transition-colors ${
+                  className={`w-full mt-6 py-2 px-4 rounded-full cursor-pointer font-medium transition-colors ${
                     plan.bestValue
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                      : 'bg-gray-300 text-gray-800 hover:bg-gray-500'
                   }`}
                 >
                   Order Now!

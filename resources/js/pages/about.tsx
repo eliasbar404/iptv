@@ -91,7 +91,7 @@ function About() {
         </div>
 
         {/* Support Section */}
-        <div className="text-center max-w-2xl mx-auto">
+        {/* <div className="text-center max-w-2xl mx-auto">
           <div className="text-blue-500 flex justify-center mb-4">
             <PhoneCall className="w-12 h-12" />
           </div>
@@ -102,7 +102,7 @@ function About() {
           <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">
             Contact Support
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

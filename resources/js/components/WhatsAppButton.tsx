@@ -98,12 +98,20 @@ export default function WhatsAppButton() {
             <div className="p-4 space-y-4">
               <div className="bg-white rounded-lg p-3 shadow max-w-[80%] ml-auto">
                 <p className="text-sm">👋 Hello! How can we help you today?</p>
-                <p className="text-xs text-gray-500 text-right mt-1">10:00 AM</p>
+                <p className="text-xs text-gray-500 text-right mt-1">{new Date().toLocaleTimeString('en-GB', { 
+  hour: '2-digit', 
+  minute: '2-digit', 
+  hour12: false 
+})}</p>
               </div>
               
               <div className="bg-white rounded-lg p-3 shadow max-w-[80%] ml-auto">
                 <p className="text-sm">Click continue to chat with our support team on WhatsApp!</p>
-                <p className="text-xs text-gray-500 text-right mt-1">10:00 AM</p>
+                <p className="text-xs text-gray-500 text-right mt-1">{new Date().toLocaleTimeString('en-GB', { 
+  hour: '2-digit', 
+  minute: '2-digit', 
+  hour12: false 
+})}</p>
               </div>
             </div>
 
